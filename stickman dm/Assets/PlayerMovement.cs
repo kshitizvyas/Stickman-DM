@@ -29,6 +29,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private int GravityScale;
 
+
+    public int attackDamage;
     public float movementSpeed;
     public float jumpForce;
     public float groundCheckRadius;
@@ -176,8 +178,16 @@ public class PlayerMovement : MonoBehaviour
 
         foreach (Collider2D enemy in enemies)
         {
-            Debug.Log("Attacked enemy : " + enemy.name);
+            if (!photonView.IsMine)
+            {
+                enemy.GetComponent<PlayerMovement>().TakeDamage(attackDamage);
+            }
         }
+    }
+
+    public void TakeDamage(int value)
+    {
+        Health -= value;
     }
 
     private void Jump()

@@ -328,6 +328,7 @@ MonoBehaviour:
   Health: 5
   amountOfJumps: 1
   GravityScale: 0
+  attackDamage: 2
   movementSpeed: 4
   jumpForce: 11
   groundCheckRadius: 0.2
@@ -342,7 +343,7 @@ MonoBehaviour:
   attackRange: 0.6
   attackLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512
 --- !u!114 &3279078704418289683
 MonoBehaviour:
   m_ObjectHideFlags: 0

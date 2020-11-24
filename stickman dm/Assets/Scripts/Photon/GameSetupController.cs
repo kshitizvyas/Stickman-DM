@@ -1,9 +1,14 @@
 ﻿using Photon.Pun;
 using UnityEngine;
 using System.IO;
+using System.Collections;
+using System.Collections.Generic;
 
 public class GameSetupController : MonoBehaviour
 {
+
+    List<GameObject> players;
+
     void Start()
     {
         CreatePlayer();
@@ -17,8 +22,8 @@ public class GameSetupController : MonoBehaviour
 
     private void CreatePlayer()
     {
-        PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "PhotonPlayer"), new Vector3(0,1,0), Quaternion.identity); // "PhotonPlayer = player gameobject name"
-
+        GameObject x = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "PhotonPlayer"), new Vector3(0,1,0), Quaternion.identity); // "PhotonPlayer = player gameobject name"
+        players.Add(x);
     }
 
 }
