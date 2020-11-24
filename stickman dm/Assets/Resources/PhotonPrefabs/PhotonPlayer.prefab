@@ -255,11 +255,12 @@ MonoBehaviour:
   Group: 0
   prefixField: -1
   observableSearch: 2
-  Synchronization: 3
+  Synchronization: 1
   OwnershipTransfer: 0
   ObservedComponents:
   - {fileID: -471703131715996603}
   - {fileID: 213741853646076151}
+  - {fileID: 791877100}
   - {fileID: 3279078704418289683}
   viewIdField: 0
   InstantiationId: 0
