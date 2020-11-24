@@ -24,13 +24,13 @@ public class PlayerMovement : MonoBehaviourPunCallbacks, IPunObservable
 
     private Rigidbody2D rb;
     private Animator anim;
-    public int Health = 5;
+    public float Health = 5;
     public int amountOfJumps = 1;
     [SerializeField]
     private int GravityScale;
 
 
-    public int attackDamage;
+    public float attackDamage;
     public float movementSpeed;
     public float jumpForce;
     public float groundCheckRadius;
@@ -185,7 +185,7 @@ public class PlayerMovement : MonoBehaviourPunCallbacks, IPunObservable
         }
     }
 
-    public void TakeDamage(int value)
+    public void TakeDamage(float value)
     {
         Health -= value;
         
@@ -243,7 +243,7 @@ public class PlayerMovement : MonoBehaviourPunCallbacks, IPunObservable
         }
         else if (stream.IsReading)
         {
-            Health = (int)stream.ReceiveNext();
+            Health = (float)stream.ReceiveNext();
         }
     }
 }
