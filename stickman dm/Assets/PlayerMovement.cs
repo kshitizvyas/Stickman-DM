@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : MonoBehaviourPunCallbacks, IPunObservable
 {
     public PhotonView photonView;
 
@@ -188,6 +188,7 @@ public class PlayerMovement : MonoBehaviour
     public void TakeDamage(int value)
     {
         Health -= value;
+        
     }
 
     private void Jump()
@@ -232,5 +233,17 @@ public class PlayerMovement : MonoBehaviour
     {
         Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);   
+    }
+
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.IsWriting)
+        {
+            stream.SendNext(Health);
+        }
+        else
+        {
+            Health = (int)stream.ReceiveNext();
+        }
     }
 }
