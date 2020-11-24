@@ -254,7 +254,7 @@ MonoBehaviour:
   ObservedComponentsFoldoutOpen: 1
   Group: 0
   prefixField: -1
-  observableSearch: 2
+  observableSearch: 0
   Synchronization: 1
   OwnershipTransfer: 0
   ObservedComponents:
@@ -358,6 +358,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SynchronizeVelocity: 1
-  m_SynchronizeAngularVelocity: 1
-  m_TeleportEnabled: 0
+  m_SynchronizeAngularVelocity: 0
+  m_TeleportEnabled: 1
   m_TeleportIfDistanceGreaterThan: 3

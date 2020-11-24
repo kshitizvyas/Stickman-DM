@@ -187,6 +187,7 @@ public class PlayerMovement : MonoBehaviourPunCallbacks, IPunObservable
 
     public void TakeDamage(float value)
     {
+        Debug.Log("attacked");
         Health -= value;
         
     }
