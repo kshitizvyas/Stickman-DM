@@ -6,7 +6,7 @@ using Photon.Pun;
 
 public class PlayerMovement : MonoBehaviourPunCallbacks, IPunObservable
 {
-    public PhotonView photonView;
+    public new PhotonView photonView;
 
     private float HorizontalInputDirection;
     private float turnTimer;
@@ -241,7 +241,7 @@ public class PlayerMovement : MonoBehaviourPunCallbacks, IPunObservable
         }
         else if (stream.IsReading)
         {
-            Health = (float)stream.ReceiveNext();
+            this.Health = (int)stream.ReceiveNext();
         }
     }
 }
