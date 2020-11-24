@@ -324,6 +324,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9759bf2e81e395343a97562463b77f35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  photonView: {fileID: 3021560200959883069}
   Health: 5
   amountOfJumps: 1
   GravityScale: 0
