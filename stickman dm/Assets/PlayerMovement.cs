@@ -2,18 +2,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public PhotonView photonView;
+
     private float HorizontalInputDirection;
-    private float VerticalInputDirection;
     private float turnTimer;
 
     private int amountOfJumpsLeft;
     private int facingDirection = 1;
 
     private bool isFacingRight = true;
-    private bool isLeft = false;
     private bool isWalking;
     private bool isAttacking;
     private bool isGrounded;
@@ -39,7 +40,6 @@ public class PlayerMovement : MonoBehaviour
 
     public LayerMask whatIsGround;
 
-
     public Transform attackPoint;
     public float attackRange;
     public LayerMask attackLayers;
@@ -53,6 +53,10 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        if (!photonView.IsMine)
+        {
+            return;
+        }
         CheckInput();
         CheckMovementDirection();
         UpdateAnimations();
@@ -61,6 +65,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (!photonView.IsMine)
+        {
+            return;
+        }
         ApplyMovement();
         CheckSurroundings();
     }
@@ -69,7 +77,6 @@ public class PlayerMovement : MonoBehaviour
     private void CheckSurroundings()
     {
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround);
-
     }
 
     private void CheckIfCanJump()
@@ -123,8 +130,6 @@ public class PlayerMovement : MonoBehaviour
     private void CheckInput()
     {
         HorizontalInputDirection = Input.GetAxisRaw("Horizontal");
-        VerticalInputDirection = Input.GetAxisRaw("Vertical");
-
 
         if (Input.GetButtonDown("Horizontal"))
         {
