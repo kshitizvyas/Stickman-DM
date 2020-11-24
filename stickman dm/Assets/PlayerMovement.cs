@@ -239,7 +239,7 @@ public class PlayerMovement : MonoBehaviourPunCallbacks, IPunObservable
         {
             stream.SendNext(Health);
         }
-        else if (stream.IsReading)
+        else
         {
             this.Health = (int)stream.ReceiveNext();
         }
