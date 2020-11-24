@@ -178,10 +178,7 @@ public class PlayerMovement : MonoBehaviourPunCallbacks, IPunObservable
 
         foreach (Collider2D enemy in enemies)
         {
-            if (!photonView.IsMine)
-            {
                 enemy.GetComponent<PlayerMovement>().TakeDamage(attackDamage);
-            }
         }
     }
 
